@@ -5,22 +5,29 @@ export class Info extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            count: 1
+            texte: ""
         }
     }
-    handleClick =() =>{
+    handleInput=(event) =>{
+        const val = event.target.value
         this.setState({
-            count: this.state.count + 1
-        })
+            texte: val
+           })
+        
     }
 
 
     render(){
         return(
             <div>
-                <h1>BONJOUR, {this.props.name}</h1>
-                <button onClick = {this.handleClick}>Click Me</button>
-                <p> {this.state.count}</p>
+                <input 
+                    type="text"
+                    placeholder="Entrez votre nom"
+                    value={this.state.texte}    
+                    onChange={this.handleInput}
+                />
+                <p>Votre nomm est: {this.state.texte}</p>
+                
             </div>   
         )
     }
